@@ -1,7 +1,17 @@
 import { useNavigate } from "react-router-dom"
+import NavBar from "../navigation-bar/NavBar";
+import { DropdownComponent } from "../navigation-bar/Dropdown";
+
+
 
 export const Dashboard = () => {
-    return <h1>Hello, this is the dashboard.</h1>;
+    return (
+        <div>
+            <NavBar />
+           <h1>Hello, this is the dashboard.</h1> 
+           {/* <DropdownComponent data={} more="More items here" /> */}
+        </div>
+    );
 };
 
 // interface Monster {
