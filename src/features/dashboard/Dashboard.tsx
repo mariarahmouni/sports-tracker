@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom"
 import NavBar from "../navigation-bar/NavBar";
-import { DropdownComponent } from "../navigation-bar/Dropdown";
+import { Dropdown } from "../navigation-bar/Dropdown";
 
 
 
-export const Dashboard = () => {
+const Dashboard = () => {
     return (
         <div>
             <NavBar />
@@ -13,6 +13,8 @@ export const Dashboard = () => {
         </div>
     );
 };
+
+export default Dashboard;
 
 // interface Monster {
 //     id: number

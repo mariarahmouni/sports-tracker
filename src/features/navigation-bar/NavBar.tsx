@@ -1,6 +1,9 @@
+import Dropdown from "./Dropdown";
+
 const NavBar =():JSX.Element => {
+    
     return(
-        <div>placeholder</div>
+        <Dropdown data={} more={''} />
     );
 };
 export default NavBar;

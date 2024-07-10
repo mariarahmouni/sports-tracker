@@ -10,19 +10,22 @@ interface DropLinksProps {
     more: string;
 }
 
-export const DropdownComponent = ({ data, more }: DropLinksProps): JSX.Element => {
+const Dropdown = ({ data, more }: DropLinksProps): JSX.Element => {
+   
     return (
         <div> 
             {data.map((d) => (
                 <div key={d.id}>
                 <h1 > {d.name}</h1>
-                <img src={d.image} alt={d.name}style={{ width: '50px', height: '50px' }} />
+                <img src={d.image} alt={d.name} style={{ width: '50px', height: '50px' }} />
                 </div>
             ))};
             <div>{more}</div>
         </div>
     );
 };
+
+export default Dropdown;
 // return (
 //     <div>
 //         {monsters.map((monster) => (
