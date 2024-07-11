@@ -3,7 +3,8 @@ import Dropdown from "./Dropdown";
 const NavBar =():JSX.Element => {
     
     return(
-        <Dropdown data={} more={''} />
+        <h1>navbar navbar navbar</h1>
+        // <Dropdown data={} more={''} />
     );
 };
 export default NavBar;

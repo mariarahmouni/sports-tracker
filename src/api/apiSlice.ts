@@ -1,19 +1,11 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosHeaderValue } from "axios"
 import { createApi } from "@reduxjs/toolkit/query/react";
-import type { BaseQueryApi, BaseQueryFn } from '@reduxjs/toolkit/query/react';
-import { RootState } from "../store/configure";
+import type { BaseQueryFn } from '@reduxjs/toolkit/query/react';
 
-type MaybePromise<T> = T | PromiseLike<T>;
-
-type PrepareHeaders<T> = (
-    headers: T,
-    api: Pick<BaseQueryApi, 'getState' | 'extra' | 'endpoint' | 'type' | 'forced'>
-) => MaybePromise<T | void>;
 export type RawAxiosHeaders = Record<string, AxiosHeaderValue>;
 
 interface AxiosBaseQueryFn {
     baseUrl: string;
-    prepareHeaders: PrepareHeaders<RawAxiosHeaders>;
 }
 
 interface ApiResponse<T = unknown> {
@@ -23,8 +15,7 @@ interface ApiResponse<T = unknown> {
 
 const axiosBaseQuery =
     ({
-        baseUrl = '',
-        prepareHeaders = (h) => h,
+        baseUrl = ''
     }: AxiosBaseQueryFn): BaseQueryFn<{
         url: string;
         method: AxiosRequestConfig['method'];
@@ -33,10 +24,12 @@ const axiosBaseQuery =
         headers?: RawAxiosHeaders;
         responseType?: AxiosRequestConfig['responseType'];
     }> =>
-        async ({ url, headers = axios.defaults.headers, ...args }, api) => {
-
+        async ({ url, headers = axios.defaults.headers, ...args }) => {
+            
             try {
-                const requestHeaders = (await prepareHeaders(headers, api)) || headers;
+                const requestHeaders = headers;
+                requestHeaders['X-Auth-Token'] = '743e905c14aa4348adba5456366800c0';
+                
                 const result = await axios({
                     ...args,
                     url: baseUrl + url,
@@ -60,14 +53,7 @@ const apiSlice = createApi({
     reducerPath: 'api',
     endpoints: () => ({}),
     baseQuery: axiosBaseQuery({
-        baseUrl: 'https://api.football-data.org/v4',
-        prepareHeaders: (headers, { getState }) => {
-            const { token } = (getState() as RootState).auth;
-            if (token) {
-                headers.Authorization = `Bearer ${token}`;
-            }
-            return headers;
-        },
+        baseUrl: 'https://api.football-data.org/v4'
     }),
 });
 export default apiSlice;
