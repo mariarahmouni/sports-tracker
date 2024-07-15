@@ -1,12 +1,14 @@
-import { useNavigate } from "react-router-dom"
 import NavBar from "../navigation-bar/NavBar";
-
+import Persons from "../Persons";
 
 
 const Dashboard = () => {
+    
+
     return (
         <div>
             <NavBar />
+            <Persons />
            <h1>Hello, this is the dashboard.</h1> 
            {/* <DropdownComponent data={} more="More items here" /> */}
         </div>
