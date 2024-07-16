@@ -1,7 +1,7 @@
 import React from "react";
 import { toast } from "react-toastify";
 import { Person, personService } from "../services/personsService";
-import Persons from "../../components/Persons";
+import Persons from "../../components/persons/Persons";
 
 const useGetPersonById = (id: number): Person | undefined => {
     const [person, setPerson] = React.useState<Person>();

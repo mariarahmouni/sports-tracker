@@ -1,16 +1,16 @@
+import useGetAllPersons from "../../api/hooks/useGetAllPersons";
 import NavBar from "../navigation-bar/NavBar";
-import Persons from "../Persons";
+import { Person } from "../../api/services/personsService";
+import Practice from "./Practice";
 
 
 const Dashboard = () => {
-    
-
     return (
         <div>
             <NavBar />
-            <Persons />
-           <h1>Hello, this is the dashboard.</h1> 
-           {/* <DropdownComponent data={} more="More items here" /> */}
+            <Practice /> 
+            <h1>Hello, I am the Dashboard.</h1>
+           
         </div>
     );
 };
