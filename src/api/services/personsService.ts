@@ -1,3 +1,4 @@
+import { ComboboxStringItem } from "@mantine/core";
 import apiSlice from "../apiSlice";
 import Team from "./teamsService";
 
@@ -11,6 +12,16 @@ export interface Person {
     shirtNumber: number,
     lastUpdated: string,
     currentTeam: Team, 
+}
+
+export interface Coach {
+    id: number,
+    firstName: string,
+    lastName: string,
+    name: string,
+    dateOfBirth: string,
+    nationality: string,
+    contract: { start: string, until: string}
 }
 
 export const personService = apiSlice.injectEndpoints({

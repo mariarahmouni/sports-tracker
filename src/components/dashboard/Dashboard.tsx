@@ -1,6 +1,4 @@
-import useGetAllPersons from "../../api/hooks/useGetAllPersons";
 import NavBar from "../navigation-bar/NavBar";
-import { Person } from "../../api/services/personsService";
 import Practice from "./Practice";
 
 

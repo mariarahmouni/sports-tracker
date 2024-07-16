@@ -1,5 +1,9 @@
+import apiSlice from "../apiSlice";
+import { Area } from "./areaService";
+import { Coach, Person } from "./personsService";
 
 interface Team {
+    area: Area,
     id: number,
     name: string,
     shortName: string,
@@ -10,14 +14,9 @@ interface Team {
     founded: number,
     clubColors: string,
     venue: string,
-    area: Area,
-}
-
-export interface Area {
-    id: number,
-    name: string,
-    code: string,
-    flag: string,
+    runningCompetitions: RunningCompetitions,
+    coach: Coach,
+    squad: Person[],
 }
 
 export interface RunningCompetitions {
@@ -28,5 +27,16 @@ export interface RunningCompetitions {
     emblem: string,
 }
 
+
+export const teamsService = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        getTeamById: builder.query<Team, number> ({
+            query: (id: number) => ({
+                url: `/teams/${id}`,
+                method: 'GET',
+            })
+        })
+    })
+})
 
 export default Team;

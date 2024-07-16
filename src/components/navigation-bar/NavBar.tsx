@@ -1,6 +1,5 @@
 import NavLinks from "./NavLinks";
-import styles from "../../styles/NavBar.module.scss";
-import { Container } from "@mantine/core";
+
 
 const navigation = {
     links: [

@@ -1,15 +1,13 @@
-import { Person } from "../../api/services/personsService";
-import useGetAllPersons from "../../api/hooks/useGetAllPersons";
+
+import useGetAreaById from "../../api/hooks/useGetAllAreas";
 
 const Practice = () => {
-    const persons = useGetAllPersons();
-    return (
-        <ul>
-            {persons.map((person) => (
-                <li key={person.id}>{person.firstName}</li>
-            ))}
-        </ul>
-    );
+    const area = useGetAreaById(2000);
+    if (area) {
+        return (
+            <h1>{area.name}</h1>
+        );
+    }
 }
 
 export default Practice;
