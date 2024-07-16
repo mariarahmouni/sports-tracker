@@ -25,7 +25,6 @@ const axiosBaseQuery =
         responseType?: AxiosRequestConfig['responseType'];
     }> =>
         async ({ url, headers = axios.defaults.headers, ...args }) => {
-            
             try {
                 const requestHeaders = headers;
                 requestHeaders['X-Auth-Token'] = '743e905c14aa4348adba5456366800c0';
@@ -36,7 +35,10 @@ const axiosBaseQuery =
                     headers: requestHeaders,
                 });
                 const apiResponse = result.data as ApiResponse;
-                return { data: apiResponse.data };
+                
+                return { 
+                    data: apiResponse,
+                };
             } catch (axiosError) {
                 const err = axiosError as AxiosError<ApiResponse>;
                 return {
@@ -53,7 +55,7 @@ const apiSlice = createApi({
     reducerPath: 'api',
     endpoints: () => ({}),
     baseQuery: axiosBaseQuery({
-        baseUrl: 'https://api.football-data.org/v4'
+        baseUrl: '/api',
     }),
 });
 export default apiSlice;
