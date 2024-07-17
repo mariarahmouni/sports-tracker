@@ -1,15 +1,14 @@
+import { Container } from "@mantine/core";
 import NavBar from "../navigation-bar/NavBar";
-import Practice from "./Practice";
 
 
 const Dashboard = () => {
     return (
-        <div>
+
+        <>
             <NavBar />
-            <Practice /> 
             <h1>Hello, I am the Dashboard.</h1>
-           
-        </div>
+       </>
     );
 };
 

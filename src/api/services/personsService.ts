@@ -1,4 +1,3 @@
-import { ComboboxStringItem } from "@mantine/core";
 import apiSlice from "../apiSlice";
 import Team from "./teamsService";
 

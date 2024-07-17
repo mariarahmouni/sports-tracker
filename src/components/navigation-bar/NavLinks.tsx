@@ -1,6 +1,5 @@
-import React from "react";
-import { Group, Container, UnstyledButton, NavLink, Button, ButtonGroup } from "@mantine/core";
-import { IconHome2 } from '@tabler/icons-react';
+import { NavLink, UnstyledButton, Group } from "@mantine/core";
+import classes from '../../styles/NavLinks.module.css';
 
 export interface NavLink {
     name: string,
@@ -11,22 +10,23 @@ export interface NavLinksProps {
     links: NavLink[];
 }
 
-const col = {
-    bg: 'var(--mantine-color-gray-3)',
-}
-
 const NavLinks = ({ links }: NavLinksProps): JSX.Element => (
-    <Container fluid>
-        <ButtonGroup style={{gap: 40}}>
+    <>
+        <Group>
+            <a href={'/'} className={classes.logo}>{'Sports Tracker'}</a>
+        </Group>
+        <Group className={classes.linkGroup}>
             {links.map(link => (
-                <Button key={link.name} {...col} style={{width: '100%'}}>
-                    <a href={link.to}>{link.name}</a>
-                </Button>
+                <UnstyledButton key={link.name} className={classes.button}>
+                    <li className={classes.li}>
+                        <a href={link.to} className={classes.link}>{link.name}</a>
 
+                    </li>
+                </UnstyledButton>
             ))}
-        </ButtonGroup>
-    </Container>
-
+        </Group>
+       
+    </>
 
 );
 

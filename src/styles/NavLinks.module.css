@@ -1,0 +1,60 @@
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f3e8f8 !important;
+    border: none !important;
+    border-radius: 4px;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 500;
+    width: 100%;
+
+
+    &:hover {
+        background-color: #51138e !important;
+    }
+
+}
+
+.li {
+    display: block;
+    float: left;
+    list-style-type: none;
+ 
+}
+
+
+
+.linkGroup {
+    list-style-type: none;
+    font-family: "copperplate",Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #13308e;
+    
+}
+
+.logo {
+    font-family: 'copperplate', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+    color:#13308e;
+
+    &:hover {
+        color:#51138e;
+    }
+}
+
+.profileLink {
+    
+}
+.button {
+    background: none;
+    border: none;
+    padding: 0;
+}

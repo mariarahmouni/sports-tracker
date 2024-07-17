@@ -1,9 +1,8 @@
 import NavLinks from "./NavLinks";
-
+import { Container, Group } from '@mantine/core';
 
 const navigation = {
     links: [
-        { name: "Sports Tracker", to: "/" },
         { name: "Leagues", to: "/Leagues" },
         { name: "Profile", to: "/Profile" },
         { name: "Players", to: "/Players" },
@@ -14,11 +13,10 @@ const { links } = navigation;
 
 
 const NavBar = (): JSX.Element => {
-    console.log(links);
     return (
-        <div>
+        <Container  fluid>
             <NavLinks links={links} />
-        </div>
+        </Container>
     );
 };
 export default NavBar;

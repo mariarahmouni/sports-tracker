@@ -1,4 +1,3 @@
-import apiSlice from "../apiSlice";
 import { Area } from "./areaService";
 import Team from "./teamsService";
 
