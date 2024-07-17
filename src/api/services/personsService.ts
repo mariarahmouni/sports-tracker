@@ -9,12 +9,12 @@ export interface Person {
     dateOfBirth: string,
     nationality: string,
     position: string,
-    shirtNumber: number,
+    shirtNumber: number | null,
     lastUpdated: string,
     currentTeam: Team, 
 }
 
-export interface Coach {
+export interface Coach { // unsure of whether this will be helpful
     id: number,
     firstName: string,
     lastName: string,
