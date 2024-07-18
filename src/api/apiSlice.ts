@@ -28,7 +28,7 @@ const axiosBaseQuery =
             
             try {
                 const requestHeaders = headers;
-                requestHeaders['X-Auth-Token'] = '743e905c14aa4348adba5456366800c0';
+                requestHeaders['Authorization'] = '49e29b21-bb46-4792-a920-c79ee2ac05cc';
                 
                 const result = await axios({
                     ...args,
@@ -53,7 +53,7 @@ const apiSlice = createApi({
     reducerPath: 'api',
     endpoints: () => ({}),
     baseQuery: axiosBaseQuery({
-        baseUrl: 'https://api.football-data.org/v4'
+        baseUrl: 'https://api.balldontlie.io/v1/'
     }),
 });
 export default apiSlice;

@@ -1,5 +1,5 @@
 import NavBar from "../navigation-bar/NavBar";
-import Persons from "../Persons";
+import Persons from "../Players";
 
 
 const Dashboard = () => {

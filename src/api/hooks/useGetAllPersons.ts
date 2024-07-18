@@ -1,11 +1,11 @@
 import React from "react";
-import { Person, personService } from "../services/personsService";
+import { Player, playerService } from "../services/playerService";
 import { toast } from "react-toastify";
 
-const useGetAllPersons = (): Person[] => {
-    const [persons, setPersons] = React.useState<Person[]>([]);
+const useGetAllPersons = (): Player[] => {
+    const [persons, setPersons] = React.useState<Player[]>([]);
 
-    const [triggerGetAllPersons, {isFetching}] = personService.useLazyGetAllPersonsQuery();
+    const [triggerGetAllPersons, {isFetching}] = playerService.useLazyGetAllPersonsQuery();
 
     React.useEffect(() => {
         if (!isFetching) {
