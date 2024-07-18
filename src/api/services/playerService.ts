@@ -15,10 +15,6 @@ export interface Player {
     draft_round: number,
     draft_number: number,
     team: Team,
-    dateOfBirth: string,
-    nationality: string,
-    shirtNumber: number,
-    lastUpdated: string,
 }
 
 export const playerService = apiSlice.injectEndpoints({
