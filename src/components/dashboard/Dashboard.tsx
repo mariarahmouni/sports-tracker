@@ -1,17 +1,15 @@
+import { Container } from "@mantine/core";
 import NavBar from "../navigation-bar/NavBar";
 import Persons from "../Players";
 
 
 const Dashboard = () => {
-    
-
     return (
-        <div>
+
+        <>
             <NavBar />
-            <Persons />
-           <h1>Hello, this is the dashboard.</h1> 
-           {/* <DropdownComponent data={} more="More items here" /> */}
-        </div>
+            <h1>Hello, I am the Dashboard.</h1>
+       </>
     );
 };
 

@@ -25,7 +25,6 @@ const axiosBaseQuery =
         responseType?: AxiosRequestConfig['responseType'];
     }> =>
         async ({ url, headers = axios.defaults.headers, ...args }) => {
-            
             try {
                 const requestHeaders = headers;
                 requestHeaders['Authorization'] = '49e29b21-bb46-4792-a920-c79ee2ac05cc';
@@ -36,7 +35,10 @@ const axiosBaseQuery =
                     headers: requestHeaders,
                 });
                 const apiResponse = result.data as ApiResponse;
-                return { data: apiResponse.data };
+                
+                return { 
+                    data: apiResponse,
+                };
             } catch (axiosError) {
                 const err = axiosError as AxiosError<ApiResponse>;
                 return {

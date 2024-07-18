@@ -9,7 +9,8 @@ const useGetPersonByName = (): Player => {
 
     React.useEffect(() => {
         if( !isFetching ){
-            triggerGetPersonByName()
+            triggerGetPersonByName(name)
+            .unwrap()
             .then((person) => {
                 setPerson(person);
             })
@@ -17,7 +18,9 @@ const useGetPersonByName = (): Player => {
                 toast.error('Uh Oh')
             })
         }
-    })
+    },[name, isFetching, triggerGetPersonByName]);
+
+    return person;
 }
 
 export default useGetPersonByName;

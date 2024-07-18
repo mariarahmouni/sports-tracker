@@ -1,10 +1,23 @@
-import Dropdown from "./Dropdown";
+import NavLinks from "./NavLinks";
+import { Container, Group } from '@mantine/core';
 
-const NavBar =():JSX.Element => {
-    
-    return(
-        <h1>navbar navbar navbar</h1>
-        // <Dropdown data={} more={''} />
+const navigation = {
+    links: [
+        { name: "Leagues", to: "/Leagues" },
+        { name: "Profile", to: "/Profile" },
+        { name: "Players", to: "/Players" },
+        { name: "Teams", to: "/Teams" },
+    ]
+}
+const { links } = navigation;
+
+
+const NavBar = (): JSX.Element => {
+    return (
+        <Container  fluid>
+            <NavLinks links={links} />
+        </Container>
     );
 };
 export default NavBar;
+
