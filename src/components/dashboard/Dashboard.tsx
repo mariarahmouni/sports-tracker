@@ -1,6 +1,5 @@
-import { Container } from "@mantine/core";
 import NavBar from "../navigation-bar/NavBar";
-import Persons from "../Players";
+import Practice from "./Practice";
 
 
 const Dashboard = () => {
@@ -9,6 +8,7 @@ const Dashboard = () => {
         <>
             <NavBar />
             <h1>Hello, I am the Dashboard.</h1>
+            <Practice />
        </>
     );
 };
