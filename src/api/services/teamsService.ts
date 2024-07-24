@@ -21,11 +21,11 @@ export interface TeamsResponse {
 export const teamsService = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         /* How to pass multiple parameters together? division + cursor + conference*/
-        getAllTeams: builder.query<TeamsResponse, string | null>({
-            query: (cursor) => ({
+        getAllTeams: builder.query<TeamsResponse, void>({
+            query: () => ({
                 url: `/teams`,
                 method: 'GET',
-                params: { cursor },
+                
             })
         }),
         getTeamById: builder.query<TeamsResponse, number>({
