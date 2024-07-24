@@ -1,4 +1,4 @@
-import { Button, resolveClassNames } from "@mantine/core";
+import { Button} from "@mantine/core";
 import useGetAllTeams from "../api/hooks/useGetAllTeams";
 import NavBar from "../components/navigation-bar/NavBar";
 import React from "react";
