@@ -1,5 +1,4 @@
 import NavLinks from "./NavLinks";
-import {IconBallBasketball} from '@tabler/icons-react'
 
 const navigation = {
     links: [
