@@ -10,4 +10,34 @@ interface Team {
     abbreviation: string,
 }
 
+export interface TeamsResponse {
+    data: Team[],
+    meta: {
+        meta: {
+            next_cursor: string | null;
+            per_page: number;
+        };
+    }
+}
+
+export const teamsService = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        /* How to pass multiple parameters together? division + cursor + conference*/
+        getAllTeams: builder.query<TeamsResponse, string | null>({
+            query: (cursor) => ({
+                url: `/teams`,
+                method: 'GET',
+                params: { cursor },
+            })
+        }),
+        getTeamById: builder.query<TeamsResponse, number>({
+            query: (id) => ({
+                url: `/teams${id}`,
+                method: 'GET'
+            })
+        })
+    })
+})
+
+
 export default Team;
