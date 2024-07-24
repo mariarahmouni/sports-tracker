@@ -1,42 +1,43 @@
 import apiSlice from "../apiSlice";
-import { Area } from "./areaService";
-import { Coach, Person } from "./personsService";
 
 interface Team {
-    area: Area,
     id: number,
+    conference: string,
+    division: string,
+    city: string,
     name: string,
-    shortName: string,
-    tla: string,
-    crest: string,
-    address: string,
-    website: string,
-    founded: number,
-    clubColors: string,
-    venue: string,
-    runningCompetitions: RunningCompetitions,
-    coach: Coach,
-    squad: Person[],
+    full_name: string,
+    abbreviation: string,
 }
 
-export interface RunningCompetitions {
-    id: number,
-    name: string,
-    code: string,
-    type: string,
-    emblem: string,
+export interface TeamsResponse {
+    data: Team[],
+    meta: {
+        meta: {
+            next_cursor: string | null;
+            per_page: number;
+        };
+    }
 }
-
 
 export const teamsService = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getTeamById: builder.query<Team, number> ({
-            query: (id: number) => ({
-                url: `/teams/${id}`,
+        /* How to pass multiple parameters together? division + cursor + conference*/
+        getAllTeams: builder.query<TeamsResponse, string | null>({
+            query: (cursor) => ({
+                url: `/teams`,
                 method: 'GET',
+                params: { cursor },
+            })
+        }),
+        getTeamById: builder.query<TeamsResponse, number>({
+            query: (id) => ({
+                url: `/teams${id}`,
+                method: 'GET'
             })
         })
     })
 })
+
 
 export default Team;

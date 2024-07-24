@@ -1,11 +1,12 @@
 import NavBar from "../components/navigation-bar/NavBar";
-const Leagues = () => {
+
+const Games = () => {
     return (
         <div>
             <NavBar />
-            <h1>Hello, I am the Leagues page.</h1>
+            Hello, I am the Games page. 
         </div>
-    );
-};
+    )
+}
 
-export default Leagues;
+export default Games;

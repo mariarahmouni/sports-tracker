@@ -1,13 +1,13 @@
-import { Container } from "@mantine/core";
 import NavBar from "../navigation-bar/NavBar";
+import SignUp from "./SignUp";
 
 
 const Dashboard = () => {
     return (
-
+        
         <>
             <NavBar />
-            <h1>Hello, I am the Dashboard.</h1>
+            <SignUp />
        </>
     );
 };

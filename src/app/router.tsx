@@ -1,19 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../components/dashboard/Dashboard";
 import Players from "../pages/Players";
-import Leagues from "../pages/Leagues";
 import Profile from "../pages/Profile";
 import Teams from "../pages/Teams";
+import Games from "../pages/Games";
 // https://reactrouter.com/en/main/routers/create-browser-router
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Dashboard />,
-    },
-    {
-        path: "/Leagues",
-        element: <Leagues />
     },
     {
         path: "/Profile",
@@ -27,6 +23,10 @@ const router = createBrowserRouter([
         path: "/Teams",
         element: <Teams />
     },
+    {
+        path: "/Games",
+        element: <Games />
+    }
 ]);
 
 export default router;
