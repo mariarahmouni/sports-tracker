@@ -13,10 +13,8 @@ interface Team {
 export interface TeamsResponse {
     data: Team[],
     meta: {
-        meta: {
-            next_cursor: string | null;
-            per_page: number;
-        };
+        next_cursor: string | null;
+        per_page: number;
     }
 }
 
