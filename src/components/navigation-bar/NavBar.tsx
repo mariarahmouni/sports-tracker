@@ -13,9 +13,7 @@ const { links } = navigation;
 
 const NavBar = (): JSX.Element => {
     return (
-    
-            <NavLinks links={links} />
-        
+            <NavLinks links={links} />    
     );
 };
 export default NavBar;

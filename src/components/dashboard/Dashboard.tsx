@@ -1,14 +1,13 @@
 import NavBar from "../navigation-bar/NavBar";
-import Practice from "./Practice";
+import SignUp from "./SignUp";
 
 
 const Dashboard = () => {
     return (
-
+        
         <>
             <NavBar />
-            <h1>Hello, I am the Dashboard.</h1>
-            <Practice />
+            <SignUp />
        </>
     );
 };

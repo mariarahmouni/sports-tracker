@@ -32,12 +32,12 @@ const NavLinks = ({ links }: NavLinksProps): JSX.Element => (
                     </li>
                 </UnstyledButton>
             ))}
-            
+            <div>
              <UnstyledButton key="Profile">
                     <li className={classes.li}>
                         <a href="/Profile" className={classes.profileLink}>Profile</a>
                     </li>
-            </UnstyledButton>
+            </UnstyledButton></div>
         </Group>
     </>
 
