@@ -1,15 +1,15 @@
 import React from "react";
-import { toast } from "react-toastify";
 import { Player, playerService } from "../services/playerService";
+import { toast } from "react-toastify";
 
-const useGetPlayerById = (id: number): Player | undefined => {
+const useGetPlayerByName = (search: string): Player | undefined => {
     const [player, setPlayer] = React.useState<Player>();
+    const [triggerGetPlayerByName, isFetching] = playerService.useLazyGetPlayerByNameQuery();
 
-    const [triggerGetPlayerById, { isFetching }] = playerService.useLazyGetPlayerByIdQuery();
 
     React.useEffect(() => {
         if (!isFetching) {
-            triggerGetPlayerById(id)
+            triggerGetPlayerByName(search)
                 .unwrap()
                 .then((playerResponse) => {
                     setPlayer(playerResponse.data);
@@ -19,9 +19,9 @@ const useGetPlayerById = (id: number): Player | undefined => {
                 });
 
         }
-    }, [id, isFetching, triggerGetPlayerById]);
-    
-    return player;
+    }, [search, isFetching, triggerGetPlayerByName]);
+
+    return player
 }
 
-export default useGetPlayerById;
+export default useGetPlayerByName;

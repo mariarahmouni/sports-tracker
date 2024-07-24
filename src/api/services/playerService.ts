@@ -45,6 +45,14 @@ export const playerService = apiSlice.injectEndpoints({
                 params: { cursor },
             }),
         }),
+        getPlayerByName: builder.query<PlayerResponse, string>({
+            query: (search) => ({
+                url: `/players/`,
+                method: 'GET',
+                params: { search },
+            })
+        }),
+
     }),
     overrideExisting: true,
 });
