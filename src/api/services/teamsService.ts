@@ -13,17 +13,15 @@ interface Team {
 export interface TeamsResponse {
     data: Team[],
     meta: {
-        meta: {
-            next_cursor: string | null;
-            per_page: number;
-        };
+        next_cursor: string | null;
+        per_page: number;
     }
 }
 
 export const teamsService = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         /* How to pass multiple parameters together? division + cursor + conference*/
-        getAllTeams: builder.query<TeamsResponse, string | null>({
+        getAllTeams: builder.query<TeamsResponse, void>({
             query: (cursor) => ({
                 url: `/teams`,
                 method: 'GET',

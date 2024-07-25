@@ -15,4 +15,30 @@ interface Game {
     visitor_team: Team,
 }
 
+export interface GamesResponse {
+    data: Game[],
+    meta: {
+        next_cursor: string,
+        per_page: string,
+    }
+}
+
+export const gameService = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        getAllGames: builder.query<GamesResponse, string | null>({
+            query: (cursor) => ({
+                url: `/games`,
+                method: 'GET',
+                params: { cursor },
+            })
+        }),
+        getGameById: builder.query<Game, number> ({
+            query: (id) => ({
+                url: `/games/${id}`,
+                method: 'GET',
+            })
+        })
+    })
+})
+
 export default Game;
