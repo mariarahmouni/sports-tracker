@@ -1,5 +1,5 @@
 import apiSlice from "../apiSlice";
-import Team from "./teamsService";
+import { Team } from "./teamsService";
 
 export interface Player {
     id: number;
@@ -42,7 +42,7 @@ export const playerService = apiSlice.injectEndpoints({
             query: (cursor) => ({
                 url: `/players`,
                 method: 'GET',
-                params: { cursor },
+                params: { cursor, per_page: 50 },
             }),
         }),
         getPlayerByName: builder.query<PlayerResponse, string>({

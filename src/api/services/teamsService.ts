@@ -1,6 +1,6 @@
 import apiSlice from "../apiSlice";
 
-interface Team {
+export interface Team {
     id: number,
     conference: string,
     division: string,
@@ -38,4 +38,3 @@ export const teamsService = apiSlice.injectEndpoints({
 })
 
 
-export default Team;

@@ -1,5 +1,5 @@
 import React from "react";
-import Game, { gameService, GamesResponse } from "../services/gameService";
+import Game, { gameService} from "../services/gameService";
 import { toast } from "react-toastify";
 
 const useGetAllGames = (): {
