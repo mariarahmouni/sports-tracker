@@ -6,7 +6,6 @@ import classes from '../styles/Players.module.css'
 import PlayerTable from "../components/player-table/PlayerTable";
 
 const Players = () => {
-    const { players, isLoading, getPlayers } = useGetAllPlayers();
     
     // const playersList = React.useMemo(() =>
     //     players.map((player) => (
@@ -21,7 +20,7 @@ const Players = () => {
 
             <NavBar />
             
-            <PlayerTable players={players} getPlayers={getPlayers}/>           
+            <PlayerTable />           
         </div>
     );
 };

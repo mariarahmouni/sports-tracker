@@ -6,23 +6,13 @@ import { useState, useEffect } from "react";
 import useGetAllPlayers from "../../api/hooks/useGetAllPlayers";
 
 
-interface PlayerTableProps {
-    players: Player[],
-    getPlayers: () => void
-}
-
-const PlayerTable = ({ players, getPlayers }: PlayerTableProps): JSX.Element => {
-    const PAGE_SIZE = 25;
+const PlayerTable = (): JSX.Element => {
+    const { players, isLoading, getPlayers, pageNumber } = useGetAllPlayers();
     const [page, setPage] = useState(1);
-    // const [records, setRecords] = useState(players.slice(0,PAGE_SIZE));
 
-
-    useEffect(() => {
-        getPlayers();
-    }, [page]);
 
     return (
-        <Container >
+        <Container className={classes.container}>
             <DataTable
                 records={players}
                 columns={[
@@ -31,15 +21,15 @@ const PlayerTable = ({ players, getPlayers }: PlayerTableProps): JSX.Element => 
                     { accessor: 'position' },
                     { accessor: 'jersey_number', title: 'Number' },
                 ]}
-                totalRecords={500}
-                recordsPerPage={PAGE_SIZE}
+                totalRecords={3060}
+                recordsPerPage={pageNumber}
                 page={page}
-                onPageChange={(p) => setPage(p)}
-
+                onPageChange={(p) => {
+                    setPage(p);
+                    getPlayers(p);
+                }}
+                loadingText="Loading..."
             />
-
-
-
         </Container>
     );
 };
