@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../components/navigation-bar/NavBar";
 import useGetAllPlayers from "../api/hooks/useGetAllPlayers";
 import { Button } from "@mantine/core";
@@ -21,12 +21,7 @@ const Players = () => {
 
             <NavBar />
             
-            <PlayerTable players={players} getPlayers={getPlayers} />
-            
-
-            <Button onClick={getPlayers} className={classes.loadMoreButton}>
-                {isLoading ? 'Loading...' : 'Load More'}
-            </Button>
+            <PlayerTable players={players} getPlayers={getPlayers}/>           
         </div>
     );
 };
