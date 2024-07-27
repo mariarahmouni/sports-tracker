@@ -9,7 +9,7 @@ const useGetAllPlayers = (): {
     pageNumber: number,
 } => {
     const [players, setPlayers] = React.useState<Player[]>();
-    const PAGE_SIZE = 25;
+    const PAGE_SIZE = 10;
 
     const [triggerGetAllPlayers, { isFetching }] = playerService.useLazyGetAllPlayersQuery();
 
@@ -19,11 +19,15 @@ const useGetAllPlayers = (): {
 
     const getPlayers = (pageNumber: number) => {
         if (!isFetching) {
-            const cursor = pageNumber * PAGE_SIZE;
+            const cursor = (pageNumber - 1) * PAGE_SIZE;
+            console.log("page number: ", pageNumber);
+            console.log("cursor: " ,cursor);
             triggerGetAllPlayers(cursor.toString())
                 .unwrap()
                 .then((response) => {
-                    setPlayers(response.data);
+                    const filteredPlayers = response.data.filter((player: Player) => player.draft_year >= 2003);
+
+                    setPlayers(filteredPlayers);
                 })
                 .catch(() => {
                     toast.error('Uh oh! Something went wrong retrieving players.');
