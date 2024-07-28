@@ -2,7 +2,7 @@
 export interface DropLink {
     id: number;
     name: string;
-    image: string; //what type should images be?
+    image: string; 
 }
 
 interface DropLinksProps {

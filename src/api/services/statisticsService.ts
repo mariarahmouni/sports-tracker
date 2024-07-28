@@ -1,6 +1,6 @@
 import Game from "./gameService";
 import { Player } from "./playerService";
-import Team from "./teamsService";
+import { Team } from "./teamsService";
 
 export interface Statistics {
     id: number,

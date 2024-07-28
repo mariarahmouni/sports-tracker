@@ -3350,6 +3350,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mantine-datatable@npm:^7.11.2":
+  version: 7.11.2
+  resolution: "mantine-datatable@npm:7.11.2"
+  peerDependencies:
+    "@mantine/core": ">=7.8"
+    "@mantine/hooks": ">=7.8"
+    clsx: ">=2"
+    react: ">=18.2"
+  checksum: 5f99965d18a7938a038f7a9bea4a583ac5a7aecb28548f5645624f66dc3d35272cd79071cf7fe21838e280661021b7289c8243ee724efb3c1b6c0b55347142a6
+  languageName: node
+  linkType: hard
+
 "markdown-it@npm:^14.0.0":
   version: 14.1.0
   resolution: "markdown-it@npm:14.1.0"
@@ -4587,11 +4599,13 @@ __metadata:
     "@typescript-eslint/parser": "npm:^7.13.1"
     "@vitejs/plugin-react": "npm:^4.3.1"
     axios: "npm:^1.7.2"
+    clsx: "npm:^2.1.1"
     dayjs: "npm:^1.11.11"
     embla-carousel-react: "npm:^8.1.6"
     eslint: "npm:^8.57.0"
     eslint-plugin-react-hooks: "npm:^4.6.2"
     eslint-plugin-react-refresh: "npm:^0.4.7"
+    mantine-datatable: "npm:^7.11.2"
     postcss: "npm:^8.4.39"
     postcss-preset-mantine: "npm:^1.15.0"
     postcss-simple-vars: "npm:^7.0.1"
