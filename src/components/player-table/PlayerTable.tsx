@@ -19,10 +19,11 @@ const PlayerTable = (): JSX.Element => {
                     stripedColor="#40c057"
                     borderColor="#40c057"
                     highlightOnHover
+                    withTableBorder
                     records={players}
                     columns={[
                         { accessor: 'name', title: 'Name', render: (player: Player) => `${player.first_name} ${player.last_name}` },
-                        { accessor: 'team.full_name', title: 'Team' },
+                        { accessor: 'team.full_name', title: 'Team', },
                         { accessor: 'position' },
                         { accessor: 'jersey_number', title: 'Number' },
                     ]}
