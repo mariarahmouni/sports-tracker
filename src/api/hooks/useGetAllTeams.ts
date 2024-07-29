@@ -1,33 +1,31 @@
 import React from "react";
-import Team, { teamsService } from "../services/teamsService";
+import { Team, teamsService } from "../services/teamsService";
 import { toast } from "react-toastify";
 
-export const useGetAllTeams = (): {
-    teams: Team[],
+const useGetAllTeams = (): {
+    teams: Team[] | undefined,
     isLoading: boolean,
-    getTeams: () => void,
 } => {
-    const [teams, setTeams] = React.useState<Team[]>([]);
-
+    const [teams, setTeams] = React.useState<Team[]>();
     const [triggerGetAllTeams, { isFetching }] = teamsService.useLazyGetAllTeamsQuery();
 
-    const getTeams = () => {
-        if(!isFetching) {
+    React.useEffect(() => {
+        if (!isFetching) {
             triggerGetAllTeams()
-            .unwrap()
-            .then((teamsResponse) => {
-                setTeams(teamsResponse.data);
-            })
-            .catch(() => {
-                toast.error("Uh oh! Something went wrong fetching teams.")
-            });
-
+                .unwrap()
+                .then((response) => {
+                    const filteredTeams = response.data.filter((team: Team) => team.division != "");
+                    setTeams(filteredTeams);
+                })
+                .catch(() => {
+                    toast.error("Uh oh! Something went wrong retrieving teams.")
+                });
         }
-    }
+    }, []
+    )
     return {
         teams,
         isLoading: isFetching,
-        getTeams,
     };
 }
 

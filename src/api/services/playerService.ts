@@ -42,7 +42,7 @@ export const playerService = apiSlice.injectEndpoints({
             query: (cursor) => ({
                 url: `/players`,
                 method: 'GET',
-                params: { cursor, per_page:10 },
+                params: { cursor, per_page: 10 },
             }),
         }),
         getPlayerByName: builder.query<PlayerResponse, string>({
@@ -52,7 +52,13 @@ export const playerService = apiSlice.injectEndpoints({
                 params: { search },
             })
         }),
-
+        getTeamRoster: builder.query<PlayersResponse,  number>({
+            query: (team_id) => ({
+                url: `/players/?team_ids[]=${team_id}`,
+                method: 'GET',
+                params: { per_page: 50},
+            })
+        })
     }),
     overrideExisting: true,
 });

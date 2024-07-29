@@ -1,8 +1,8 @@
 import classes from "../../styles/PlayerTable.module.css"
 import { Player } from "../../api/services/playerService";
-import { Card, Container } from "@mantine/core";
+import { Card } from "@mantine/core";
 import { DataTable } from 'mantine-datatable';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useGetAllPlayers from "../../api/hooks/useGetAllPlayers";
 
 

@@ -1,28 +1,16 @@
-import { Button} from "@mantine/core";
-import useGetAllTeams from "../api/hooks/useGetAllTeams";
+import useGetTeamRoster from "../api/hooks/useGetTeamRoster";
 import NavBar from "../components/navigation-bar/NavBar";
-import React from "react";
+import TeamTable from "../components/team-table/TeamTable";
 
 const Teams = () => {
-    const { teams, isLoading, getTeams } = useGetAllTeams();
+    const {roster, isLoading} = useGetTeamRoster(11);
 
-    const teamsList = React.useMemo(() =>
-        /* MUST GET RID OF OUTDATED TEAMS! IT RESPONDS WITH SHEBOYGAN REDSKINS (50s) */
-        teams.map((team) => (
-            <div key={team.id} >
-                <h2>{team.full_name}</h2>
-            </div>
-        ))
-        , [teams]);
-
-
+    console.log(roster);
     return (
         <div>
-            <NavBar />
-            {teamsList}
-            <Button onClick={getTeams} >
-                {isLoading ? 'Loading...' : 'Load More'}
-            </Button>
+        <NavBar />
+           
+           <TeamTable />
 
         </div>
 
