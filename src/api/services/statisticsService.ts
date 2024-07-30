@@ -1,3 +1,4 @@
+import apiSlice from "../apiSlice";
 import Game from "./gameService";
 import { Player } from "./playerService";
 import { Team } from "./teamsService";
@@ -27,3 +28,25 @@ export interface Statistics {
     team: Team,
     game: Game,
 }
+
+export interface statsResponse {
+    stats: Statistics,
+    meta: {
+        next_cursor: number | undefined,
+        per_page: number | undefined,
+    }
+
+}
+
+const statisticsService = apiSlice.injectEndpoints({
+    endpoints: (builder) => ({
+        getStatsByPlayerId: builder.query<statsResponse, number >( {
+            query: (player_id) => ({
+                url: `/stats/?player_ids[]=${player_id}`,
+                method: 'GET',
+            }),
+        }),
+    }),
+});
+
+export default statisticsService;

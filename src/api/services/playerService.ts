@@ -58,7 +58,8 @@ export const playerService = apiSlice.injectEndpoints({
                 method: 'GET',
                 params: { per_page: 50},
             })
-        })
+        }),
+
     }),
     overrideExisting: true,
 });
