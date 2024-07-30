@@ -40,7 +40,7 @@ export interface statsResponse {
 
 const statisticsService = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        getStatsByPlayerId: builder.query<statsResponse, number >( {
+        getSeasonAveragesByPlayerId: builder.query<statsResponse, number >( {
             query: (player_id) => ({
                 url: `/stats/?player_ids[]=${player_id}`,
                 method: 'GET',

@@ -2,22 +2,22 @@ import { useState, useEffect } from "react";
 import statisticsService, { Statistics } from "../services/statisticsService";
 import { toast } from "react-toastify";
 
-const useGetStatsByPlayerId = (player_id: number): {
+const useGetSeasonAveragesByPlayerId = (player_id: number): {
     stats?: Statistics,
     isLoading: boolean,
 } => {
     const [stats, setStats] = useState<Statistics>();
-    const [triggerGetStatesByPlayerId, { isFetching }] = statisticsService.useLazyGetStatsByPlayerIdQuery();
+    const [triggerGetSeasonAveragesByPlayerId, { isFetching }] = statisticsService.useLazyGetSeasonAveragesByPlayerIdQuery();
 
     useEffect (() => {
         if(!isFetching) {
-            triggerGetStatesByPlayerId(player_id)
+            triggerGetSeasonAveragesByPlayerId(player_id)
             .unwrap()
             .then((response) => {
                 setStats(response.stats);
             })
             .catch(() => {
-                toast.error("Uh, oh. Something went wrong retrieving this player's statistics.")
+                toast.error("Uh, oh. Something went wrong retrieving this player's season averages.")
             })
         }
     }, [player_id]);
@@ -27,4 +27,4 @@ const useGetStatsByPlayerId = (player_id: number): {
     };
 };
 
-export default useGetStatsByPlayerId;
+export default useGetSeasonAveragesByPlayerId;
